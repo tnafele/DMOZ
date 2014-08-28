@@ -380,6 +380,10 @@ void initDB() {
 	char stat_descr[] = "UPDATE " TABLE_CONTENT " SET title=?, description=? WHERE link LIKE ?";
    
 	mysql = mysql_init(NULL);
+
+	if (!mysql_options(mysql, MYSQL_SET_CHARSET_NAME, "utf8")) {
+		fprintf(stderr, "%s\n", mysql_error(mysql));
+	}
    
 	/* Connect to database */
 	if (!mysql_real_connect(mysql, MYSQL_HOST, MYSQL_USR, MYSQL_PWD, MYSQL_DB, 0, NULL, 0)) {

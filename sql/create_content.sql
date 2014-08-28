@@ -7,4 +7,4 @@ CREATE TABLE `dmoz_content` (
 	`title` varbinary(255) NOT NULL default '',
 	`description` blob,
 	PRIMARY KEY  (`Id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_german2_ci PACK_KEYS=0 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci PACK_KEYS=0 ;

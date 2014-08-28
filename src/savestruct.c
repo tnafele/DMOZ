@@ -355,6 +355,10 @@ void initDB() {
 	char stat_parent[] = "UPDATE " TABLE_STRUCTURE " SET topicId=?, title=?, lastUpdate=? WHERE topic LIKE ?"; 
 	char stat_child[] = "INSERT INTO " TABLE_STRUCTURE " SET Id=?, parentId=?, level=?, topic=?";
 	mysql = mysql_init(NULL);
+
+	if (!mysql_options(mysql, MYSQL_SET_CHARSET_NAME, "utf8")) {
+		fprintf(stderr, "%s\n", mysql_error(mysql));
+	}
    
 	/* Connect to database */
 	if (!mysql_real_connect(mysql, MYSQL_HOST, MYSQL_USR, MYSQL_PWD, MYSQL_DB, 0, NULL, 0)) {
